@@ -1,10 +1,6 @@
 # StoragePath
 
-A flutter plugin to get all images, audios, videos and files location path in json format.
-
-> Only for Android.
-> If you like this plugin, buy me a cup of coffee.
-> [PayPal](https://www.paypal.me/follow2vivek/)
+一个flutter插件，以json格式获取所有图像，音频，视频和文件的位置路径。仅限Android
 
 ```dart
 dependencies:
@@ -15,23 +11,19 @@ dependencies:
 ```dart
 import 'package:storage_path/storage_path.dart';
 ```
-Sample Code
+样例代码
 ```dart 
  try {
-      imagePath = await StoragePath.imagesPath; //contains images path and folder name in json format
+      imagePath = await StoragePath.imagesPath; //包含json格式的图像路径和文件夹名称
+      videoPath = await StoragePath.videoPath; //这将返回视频路径
+      audioPath = await StoragePath.audioPath; //这将返回音频路径
+      filePath = await StoragePath.filePath; //这将返回文件路径[pdf,doc,docx,xls,xlsx,ppt,pptx,txt,rtx,rtf,html,apk,zip,rar,xml]
     } on PlatformException {
       imagesPath = 'Failed to get path';
     }
 ```
-AND
 
-```dart
-videoPath = await StoragePath.videoPath; //this will return videos path
-audioPath = await StoragePath.audioPath; //this will return audios path
-filePath = await StoragePath.filePath; //this will return files path
-```
-
-Image Json Sample
+图片Json示例
  ```json 
 
 [
@@ -44,7 +36,7 @@ Image Json Sample
   }
 ]
   ```
-File Json Sample
+文件Json示例
 ```json
 [
   {
@@ -60,7 +52,7 @@ File Json Sample
   }
 ]
 ```
-Audio Json Sample
+音频Json示例
 ```json
 [
   {
@@ -79,7 +71,7 @@ Audio Json Sample
   }
 ]
 ```
-Video Json Sample
+视频Json示例
 ```json
 [
   {
@@ -96,5 +88,3 @@ Video Json Sample
   }
 ]
 ```
-## Thank you for contribution
-- [Ashish Jajoria](https://ashish.jajoria.dev)
