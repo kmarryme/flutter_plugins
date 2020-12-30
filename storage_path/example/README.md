@@ -1,37 +1,51 @@
 # StoragePath
 
-A flutter plugin to get image, audio, video and files path.
-
-> Only for Android.
-> If you like this plugin, buy me a cup of coffee.
-> [PayPal](https://www.paypal.me/follow2vivek/)
+一个flutter插件，以json格式获取所有图像，音频，视频和文件的位置路径。仅限Android
 
 ```dart
 dependencies:
- storage_path: ^0.1.0
+ storage_path: 
+    git:
+      url: https://github.com/kmarryme/flutter_plugins.git
+      path: storage_path
 ```
 
 
 ```dart
 import 'package:storage_path/storage_path.dart';
 ```
-Sample Code
+在android/app/src/main/AndroidManifest.xml添加权限
+```
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.xx.xx">
+   
+   <!-- 添加代码start -->
+   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+   <!-- 添加代码end -->
+   
+   <application>
+   ...
+   </application>
+</manifest>
+```
+
+样例代码
 ```dart 
  try {
-      imagePath = await StoragePath.imagesPath; //contains images path and folder name in json format
+      String imagePath = await StoragePath.imagesPath; //包含json格式的图像路径和文件夹名称
+      // String videoPath = await StoragePath.videoPath; //这将返回视频路径
+      // String audioPath = await StoragePath.audioPath; //这将返回音频路径
+      // String filePath = await StoragePath.filePath; //这将返回文件路径[pdf,doc,docx,xls,xlsx,ppt,pptx,txt,rtx,rtf,html,apk,zip,rar,xml]
+      
+      print(imagePath);
+      List data = json.decode(imagePath);
     } on PlatformException {
-      imagesPath = 'Failed to get path';
+      print('无法获取路径');
     }
 ```
-AND
 
-```dart
-videoPath = await StoragePath.videoPath;
-audioPath = await StoragePath.audioPath;
-filePath = await StoragePath.filePath;
-```
 
-Image Json Sample
+图片Json示例
  ```json 
 
 [
@@ -44,7 +58,8 @@ Image Json Sample
   }
 ]
   ```
-File Json Sample
+  
+文件Json示例
 ```json
 [
   {
@@ -60,7 +75,8 @@ File Json Sample
   }
 ]
 ```
-Audio Json Sample
+
+音频Json示例
 ```json
 [
   {
@@ -79,7 +95,8 @@ Audio Json Sample
   }
 ]
 ```
-Video Json Sample
+
+视频Json示例
 ```json
 [
   {
