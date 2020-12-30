@@ -11,6 +11,21 @@ dependencies:
 ```dart
 import 'package:storage_path/storage_path.dart';
 ```
+在android/app/src/main/AndroidManifest.xml添加权限
+```
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.xx.xx">
+   
+   <!-- 添加代码start -->
+   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+   <!-- 添加代码end -->
+   
+   <application>
+   ...
+   </application>
+</manifest>
+```
+
 样例代码
 ```dart 
  try {
