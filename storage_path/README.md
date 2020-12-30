@@ -4,7 +4,10 @@
 
 ```dart
 dependencies:
- storage_path: ^0.2.1
+ storage_path: 
+    git:
+      url: https://github.com/kmarryme/flutter_plugins.git
+      path: storage_path
 ```
 
 
