@@ -19,9 +19,10 @@ import 'package:storage_path/storage_path.dart';
       audioPath = await StoragePath.audioPath; //这将返回音频路径
       filePath = await StoragePath.filePath; //这将返回文件路径[pdf,doc,docx,xls,xlsx,ppt,pptx,txt,rtx,rtf,html,apk,zip,rar,xml]
     } on PlatformException {
-      imagesPath = 'Failed to get path';
+      print('无法获取路径');
     }
 ```
+
 
 图片Json示例
  ```json 
@@ -36,6 +37,7 @@ import 'package:storage_path/storage_path.dart';
   }
 ]
   ```
+  
 文件Json示例
 ```json
 [
@@ -52,6 +54,7 @@ import 'package:storage_path/storage_path.dart';
   }
 ]
 ```
+
 音频Json示例
 ```json
 [
@@ -71,6 +74,7 @@ import 'package:storage_path/storage_path.dart';
   }
 ]
 ```
+
 视频Json示例
 ```json
 [
