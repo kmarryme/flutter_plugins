@@ -29,10 +29,13 @@ import 'package:storage_path/storage_path.dart';
 样例代码
 ```dart 
  try {
-      imagePath = await StoragePath.imagesPath; //包含json格式的图像路径和文件夹名称
-      videoPath = await StoragePath.videoPath; //这将返回视频路径
-      audioPath = await StoragePath.audioPath; //这将返回音频路径
-      filePath = await StoragePath.filePath; //这将返回文件路径[pdf,doc,docx,xls,xlsx,ppt,pptx,txt,rtx,rtf,html,apk,zip,rar,xml]
+      String imagePath = await StoragePath.imagesPath; //包含json格式的图像路径和文件夹名称
+      // String videoPath = await StoragePath.videoPath; //这将返回视频路径
+      // String audioPath = await StoragePath.audioPath; //这将返回音频路径
+      // String filePath = await StoragePath.filePath; //这将返回文件路径[pdf,doc,docx,xls,xlsx,ppt,pptx,txt,rtx,rtf,html,apk,zip,rar,xml]
+      
+      print(imagePath);
+      List data = json.decode(imagePath);
     } on PlatformException {
       print('无法获取路径');
     }
