@@ -1,4 +1,4 @@
-# StoragePath
+# storage_path
 
 一个flutter插件，以json格式获取所有图像，音频，视频和文件的位置路径。仅限Android
 
